@@ -20,6 +20,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #e2e1dc;
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
@@ -140,5 +141,21 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.calendar .days {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=calendar-style.css.map */

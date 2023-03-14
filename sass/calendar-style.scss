@@ -13,11 +13,12 @@ $calendar-bgc-color: #d3d5d6d7;
 }
 
 body {
-	min-height: 100vh;
+    min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	background-color: #e2e1dc;
+    font-family: "Poppins", sans-serif;
 }
 
 .container {
@@ -107,4 +108,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.calendar .days {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 20px;
 }
