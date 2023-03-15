@@ -3,6 +3,7 @@ $priminary-color: #b38add;
 $container-bgc-color: #373c4f;
 $calendar-color: #878895;
 $calendar-bgc-color: #d3d5d6d7;
+$out-of-the-mith-day-color: #b3b3b3;
 
 *,
 *::before,
@@ -13,12 +14,12 @@ $calendar-bgc-color: #d3d5d6d7;
 }
 
 body {
-    min-height: 100vh;
+	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	background-color: #e2e1dc;
-    font-family: "Poppins", sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -92,42 +93,103 @@ body {
 }
 
 .calendar .weekdays {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    font-size: 1rem;
-    font-weight: 500;
-    text-transform: capitalize;
+	width: 100%;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;
+	font-size: 1rem;
+	font-weight: 500;
+	text-transform: capitalize;
 }
 .calendar .weekdays div {
-    width: 14.28%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	width: 14.28%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .calendar .days {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 0 20px;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 20px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 0 20px;
+	font-size: 1rem;
+	font-weight: 500;
+	margin-bottom: 20px;
 }
 
 .calendar .days .day {
-    width: 14.28%;
-    height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: $priminary-color;
-    border: 1px solid #f5f5f5;
+	width: 14.28%;
+	height: 90px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	color: $priminary-color;
+	border: 1px solid #f5f5f5;
+}
+
+.calendar .day:not(.prev-date, .next-date):hover {
+	color: #fff;
+	background-color: $priminary-color;
+}
+
+.calendar .days .prev-date,
+.calendar .days .next-date {
+	color: $out-of-the-mith-day-color;
+}
+
+.calendar .days .active {
+	position: relative;
+	font-size: 2rem;
+	color: #fff;
+	background-color: $priminary-color;
+}
+
+.calendar .days .active::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 0 10px 2px $priminary-color;
+}
+
+.calendar .days .today {
+	font-size: 2rem;
+}
+
+.calendar .days .event {
+	position: relative;
+}
+
+// event is a mark for eny day with event we create
+.calendar .days .event::after{
+	content: '';
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	width: 75%;
+	height: 6px;
+	border-radius: 30px;
+	transform: translateX(-50%);
+	background-color: $priminary-color;
+}
+
+.calendar .event:hover::after {
+	background-color: #fff;
+}
+
+.calendar .active.event::after {
+	background-color: #fff;
+	bottom: 20%;
+}
+
+.calendar .active.event {
+	padding-bottom: 10px;
 }
