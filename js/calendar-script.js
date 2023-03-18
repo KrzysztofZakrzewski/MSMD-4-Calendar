@@ -5,7 +5,10 @@ const calendar = document.querySelector('.calendar'),
 	date = document.querySelector('.date'),
 	daysContainer = document.querySelector('.days'),
 	prev = document.querySelector('.prev'),
-	next = document.querySelector('.next');
+	next = document.querySelector('.next'),
+	todayBtn = document.querySelector('.today-btn'),
+	gotoBtn = document.querySelector('.goto-btn'),
+	dateInput = document.querySelector('.date-input');
 
 let today = new Date();
 let activeDay;
@@ -108,3 +111,13 @@ function nextMonth() {
 
 prev.addEventListener('click', prevMonth);
 next.addEventListener('click', nextMonth);
+
+// goto date functionality //
+//and goto today functionality //
+
+todayBtn.addEventListener('click', () => {
+	today = new Date();
+	month = today.getMonth();
+	year = today.getFullYear();
+	initCalendar();
+});
