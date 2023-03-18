@@ -121,3 +121,42 @@ todayBtn.addEventListener('click', () => {
 	year = today.getFullYear();
 	initCalendar();
 });
+
+dateInput.addEventListener('input', (e) => {
+	// alow only numbers, remove anything else
+	dateInput.value = dateInput.value.replace(/[^0-9/]/g, '');
+	if (dateInput.value.length === 2) {
+		// add a slash if two numbers entered
+		dateInput.value += '/';
+	}
+	if (dateInput.value.length > 7) {
+		// max 7 char
+		dateInput.value = dateInput.value.slice(0, 7);
+	}
+	// if we remove until slash slash it's not removing
+	// LERN NEW THING "'deleteContentBackward'"
+	if (e.inputType === 'deleteContentBackward') {
+		if (dateInput.value.length === 3) {
+			dateInput.value = dateInput.value.slice(0, 2);
+		}
+	}
+});
+
+// function to goto entire date
+
+function gotoDate() {
+	const dateArr = dateInput.value.split('/');
+	// data validation
+	if (dateArr.length === 2) {
+		if (dateArr[0] > 0 && dateArr[0] < 13 && dateArr[1].length === 4) {
+			month = dateArr[0] - 1;
+			year = dateArr[1];
+			initCalendar();
+			return
+		}
+	}
+	// if invalid date
+	alert('invalid date');
+}
+
+gotoBtn.addEventListener('click', gotoDate);
