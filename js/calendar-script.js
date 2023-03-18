@@ -52,33 +52,56 @@ function initCalendar() {
 		days += `<div class="day prev-date">${prevDays - i + 1}</div>`;
 	}
 
-	
 	// current month days
-	
+
 	for (let i = 1; i <= lastDate; i++) {
 		// if day is today add clas today
-		
+
 		if (
 			i === new Date().getDate() &&
 			year === new Date().getFullYear() &&
 			month === new Date().getMonth()
-			) {
-				days += `<div class="day today">${i}</div>`;
-			}
-			
-			// add remaing as it is
-			else {
-				days += `<div class="day ">${i}</div>`;
-			}
+		) {
+			days += `<div class="day today">${i}</div>`;
 		}
-		
-		// nezt month days
 
-		for (let i =1; i<= nextDays; i++) {
-			days += `<div class="day next-date">${i}</div>`
+		// add remaing as it is
+		else {
+			days += `<div class="day ">${i}</div>`;
 		}
-		
-		daysContainer.innerHTML = days;
 	}
 
+	// nezt month days
+
+	for (let i = 1; i <= nextDays; i++) {
+		days += `<div class="day next-date">${i}</div>`;
+	}
+
+	daysContainer.innerHTML = days;
+}
+
 initCalendar();
+
+// prev month
+
+function prevMonth() {
+	month--;
+	if (month < 0) {
+		month = 11;
+		year--;
+	}
+
+	initCalendar();
+}
+
+// next month
+
+function nextMonth() {
+	month++;
+	if (month > 11) {
+		month = 0;
+		year++;
+	}
+
+	initCalendar();
+}
