@@ -35,7 +35,7 @@ body {
 }
 
 .left {
-	width: 90%;
+	width: 60%;
 	padding: 20px;
 }
 
@@ -169,7 +169,7 @@ body {
 }
 
 // event is a mark for eny day with event we create
-.calendar .days .event::after{
+.calendar .days .event::after {
 	content: '';
 	position: absolute;
 	bottom: 10%;
@@ -210,12 +210,12 @@ body {
 
 // }
 
-.calendar .goto-today .goto{
+.calendar .goto-today .goto {
 	display: flex;
 	align-items: center;
 	border-radius: 5px;
 	overflow: hidden;
-	border: 1px solid $priminary-color;;
+	border: 1px solid $priminary-color;
 }
 
 .calendar .goto-today .goto input {
@@ -246,4 +246,11 @@ body {
 	border: none;
 	border-left: 1px solid $priminary-color;
 	border-radius: 0;
+}
+
+.container .right {
+	position: relative;
+	width: 40%;
+	min-height: 100%;
+	padding: 20px 0;
 }
