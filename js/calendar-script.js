@@ -105,3 +105,6 @@ function nextMonth() {
 
 	initCalendar();
 }
+
+prev.addEventListener('click', prevMonth);
+next.addEventListener('click', nextMonth);
