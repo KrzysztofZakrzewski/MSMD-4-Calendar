@@ -249,6 +249,7 @@ body {
 }
 
 .container .right {
+	position: relative;
 	width: 40%;
 	min-height: 100%;
 	padding: 20px 0;
@@ -361,6 +362,26 @@ body {
 	transform: translateY(-50%);
   }
 
-  .events .event:hover::after {
+ .event:hover::after {
 	display: flex;
   }
+
+  .add-event-wrapper {
+	position: absolute;
+	bottom: 100px;
+	left: 50%;
+	width: 90%;
+	max-height: 0;
+	overflow: hidden;
+	border-radius: 5px;
+	background-color: #fff;
+	transform: translateX(-50%);
+	transition: max-height 0.5s;
+  }
+
+  .add-event-wrapper.active {
+	max-height: 300px;
+  }
+
+
+
