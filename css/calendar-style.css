@@ -423,7 +423,7 @@ body {
 }
 
 .events .event::after {
-  content: "✓";
+  content: '✓';
   position: absolute;
   top: 50%;
   right: 0;
@@ -605,5 +605,37 @@ body {
 .add-event-footer .add-event-btn:hover {
   background-color: transparent;
   color: #b38add;
+}
+
+.add-event {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1rem;
+  color: #878895;
+  border: 2px solid #878895;
+  opacity: 0.5;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.add-event:hover {
+  opacity: 1;
+}
+
+.add-event i {
+  pointer-events: none;
 }
 /*# sourceMappingURL=calendar-style.css.map */

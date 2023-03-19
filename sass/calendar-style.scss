@@ -348,7 +348,7 @@ body {
 
 // new symbol
 .events .event::after {
-	content: "✓";
+	content: '✓';
 	position: absolute;
 	top: 50%;
 	right: 0;
@@ -360,13 +360,13 @@ body {
 	opacity: 0.3;
 	color: var(--primary-clr);
 	transform: translateY(-50%);
-  }
+}
 
- .event:hover::after {
+.event:hover::after {
 	display: flex;
-  }
+}
 
-  .add-event-wrapper {
+.add-event-wrapper {
 	position: absolute;
 	bottom: 100px;
 	left: 50%;
@@ -377,9 +377,9 @@ body {
 	background-color: #fff;
 	transform: translateX(-50%);
 	transition: max-height 0.5s;
-  }
+}
 
-  .add-event-header {
+.add-event-header {
 	width: 100%;
 	height: 50px;
 	display: flex;
@@ -388,45 +388,45 @@ body {
 	padding: 0 20px;
 	color: $container-bgc-color;
 	border-bottom: 1px solid #f5f5f5;
-  }
+}
 
-  .add-event-wrapper.active {
+.add-event-wrapper.active {
 	max-height: 300px;
-  }
+}
 
-  .add-event-header .close {
+.add-event-header .close {
 	font-size: 1.5rem;
 	cursor: pointer;
-  }
+}
 
-  .add-event-header .close:hover {
+.add-event-header .close:hover {
 	color: var(--primary-clr);
-  }
+}
 
-  .add-event-header .title {
+.add-event-header .title {
 	font-size: 1.2rem;
 	font-weight: 500;
-  }
+}
 
-  .add-event-body {
+.add-event-body {
 	width: 100%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
 	padding: 20px;
-  }
+}
 
-  .add-event-body .add-event-input {
+.add-event-body .add-event-input {
 	width: 100%;
 	height: 40px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 10px;
-  }
+}
 
-  .add-event-body .add-event-input input {
+.add-event-body .add-event-input input {
 	width: 100%;
 	height: 100%;
 	outline: none;
@@ -436,28 +436,28 @@ body {
 	font-size: 1rem;
 	font-weight: 400;
 	color: #373c4f;
-  }
+}
 
-  .add-event-body .add-event-input input::placeholder {
+.add-event-body .add-event-input input::placeholder {
 	color: #a5a5a5;
-  }
+}
 
-  .add-event-body .add-event-input input:focus {
+.add-event-body .add-event-input input:focus {
 	border-bottom: 1px solid var(--primary-clr);
-  }
+}
 
-  .add-event-body .add-event-input input:focus::placeholder {
+.add-event-body .add-event-input input:focus::placeholder {
 	color: var(--primary-clr);
-  }
+}
 
-  .add-event-footer {
+.add-event-footer {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: 20px;
-  }
+}
 
-  .add-event-footer .add-event-btn {
+.add-event-footer .add-event-btn {
 	height: 40px;
 	font-size: 1rem;
 	font-weight: 500;
@@ -469,9 +469,35 @@ body {
 	cursor: pointer;
 	padding: 5px 10px;
 	border: 1px solid $priminary-color;
-  }
+}
 
-  .add-event-footer .add-event-btn:hover {
+.add-event-footer .add-event-btn:hover {
 	background-color: transparent;
 	color: $priminary-color;
-  }
+}
+
+.add-event {
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	color: $calendar-color;
+	border: 2px solid $calendar-color;
+	opacity: 0.5;
+	border-radius: 50%;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.add-event:hover {
+	opacity: 1;
+}
+
+.add-event i {
+	pointer-events: none;
+}
