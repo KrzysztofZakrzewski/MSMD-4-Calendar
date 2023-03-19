@@ -450,4 +450,28 @@ body {
 	color: var(--primary-clr);
   }
 
-  
+  .add-event-footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+  }
+
+  .add-event-footer .add-event-btn {
+	height: 40px;
+	font-size: 1rem;
+	font-weight: 500;
+	outline: none;
+	border: none;
+	color: #fff;
+	background-color: $priminary-color;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 5px 10px;
+	border: 1px solid $priminary-color;
+  }
+
+  .add-event-footer .add-event-btn:hover {
+	background-color: transparent;
+	color: $priminary-color;
+  }

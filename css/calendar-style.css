@@ -574,4 +574,36 @@ body {
 .add-event-body .add-event-input input:focus::placeholder {
   color: var(--primary-clr);
 }
+
+.add-event-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+}
+
+.add-event-footer .add-event-btn {
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  color: #fff;
+  background-color: #b38add;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #b38add;
+}
+
+.add-event-footer .add-event-btn:hover {
+  background-color: transparent;
+  color: #b38add;
+}
 /*# sourceMappingURL=calendar-style.css.map */
