@@ -445,7 +445,9 @@ body {
   .add-event-body .add-event-input input:focus {
 	border-bottom: 1px solid var(--primary-clr);
   }
-  
+
   .add-event-body .add-event-input input:focus::placeholder {
 	color: var(--primary-clr);
   }
+
+  
