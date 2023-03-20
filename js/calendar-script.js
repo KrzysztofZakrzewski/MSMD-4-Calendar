@@ -19,7 +19,8 @@ const calendar = document.querySelector('.calendar'),
 	//
 	eventDay = document.querySelector('.event-day'),
 	eventDate = document.querySelector('.event-date'),
-	eventsContainer = document.querySelector('.events');
+	eventsContainer = document.querySelector('.events'),
+	addEventsSubmit = document.querySelector('.add-event-btn');
 
 let today = new Date();
 let activeDay;
@@ -372,6 +373,34 @@ function updateEvents(date) {
 	}
 	eventsContainer.innerHTML = events;
 }
+
+// function to add events
+addEventsSubmit.addEventListener('click', () => {
+	const eventTitle = addEventTitle.value;
+	const eventTimeFrom = addEventFrom.value;
+	const eventTimeTo = addEventTo.value;
+
+	// validations
+	if (eventTitle === '' || eventTimeFrom === '' || eventTimeTo === '') {
+		alert('Plese fill all the fields');
+		return;
+	}
+
+	const timeFromArr = eventTimeFrom.split(':');
+	const timeToArr = eventTimeTo.split(':');
+	if (
+		timeFromArr.length !== 2 ||
+		timeToArr.length !== 2 ||
+		timeFromArr[0] > 23 ||
+		timeFromArr[1] > 59 ||
+		timeToArr[0] > 23 ||
+		timeToArr[1] > 59
+	) {
+		alert('Invalid Time Format');
+		return;
+	}
+});
+
 // EventLISTENER
 
 prev.addEventListener('click', prevMonth);
