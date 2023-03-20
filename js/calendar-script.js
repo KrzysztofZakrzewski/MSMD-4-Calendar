@@ -109,9 +109,6 @@ function nextMonth() {
 	initCalendar();
 }
 
-prev.addEventListener('click', prevMonth);
-next.addEventListener('click', nextMonth);
-
 // goto date functionality //
 //and goto today functionality //
 
@@ -152,11 +149,15 @@ function gotoDate() {
 			month = dateArr[0] - 1;
 			year = dateArr[1];
 			initCalendar();
-			return
+			return;
 		}
 	}
 	// if invalid date
 	alert('invalid date');
 }
 
+// EVENTS
+
+prev.addEventListener('click', prevMonth);
+next.addEventListener('click', nextMonth);
 gotoBtn.addEventListener('click', gotoDate);
