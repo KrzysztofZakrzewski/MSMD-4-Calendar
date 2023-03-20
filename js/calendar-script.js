@@ -114,10 +114,11 @@ function initCalendar() {
 		) {
 			// days += `<div class="day today">${i}</div>`;
 			// if event found also add event class
+			// add active on today at startup
 			if (event) {
-				days += `<div class="day today event">${i}</div>`;
+				days += `<div class="day today active event">${i}</div>`;
 			} else {
-				days += `<div class="day today">${i}</div>`;
+				days += `<div class="day today active">${i}</div>`;
 			}
 		}
 
