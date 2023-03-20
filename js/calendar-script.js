@@ -429,12 +429,20 @@ addEventsSubmit.addEventListener('click', () => {
 	if (!eventAdded) {
 		eventsArr.push({
 			day: activeDay,
-			month: month+1,
+			month: month + 1,
 			year: year,
-			events:[newEvent]
-		})
-		
+			events: [newEvent],
+		});
 	}
+
+	// remove all active from add events
+	addEventContainer.classList.remove('active');
+	// clear the filds
+	addEventTitle.value = '';
+	addEventFrom.value = '';
+	addEventTo.value = '';
+
+	updateEvents(activeDay);
 });
 
 function convertTime(time) {
