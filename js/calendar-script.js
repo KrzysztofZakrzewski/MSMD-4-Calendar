@@ -312,6 +312,8 @@ function addListener() {
 						}
 					});
 				}, 100);
+			} else {
+				e.target.classList.add('active');
 			}
 		});
 	});
