@@ -30,6 +30,25 @@ const months = [
 	'December',
 ];
 
+// defolt events arrea
+const eventArr = [
+	{
+		day: 16,
+		month: 11,
+		year: 2022,
+		events: [
+			{
+				title: 'Event 1 lorem ipsum dolar sit genfa tersd DataTransferItemList',
+				time: '10:00 AM',
+			},
+			{
+				title: 'Event 2',
+				time: '11:00 AM',
+			},
+		],
+	},
+];
+
 // function to add days
 
 function initCalendar() {
@@ -54,6 +73,8 @@ function initCalendar() {
 	for (let i = day; i > 0; i--) {
 		days += `<div class="day prev-date">${prevDays - i + 1}</div>`;
 	}
+
+	
 
 	// current month days
 
