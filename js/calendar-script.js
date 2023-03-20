@@ -18,7 +18,8 @@ const calendar = document.querySelector('.calendar'),
 	addEventTo = document.querySelector('.event-time-to'),
 	//
 	eventDay = document.querySelector('.event-day'),
-	eventDate = document.querySelector('.event-date');
+	eventDate = document.querySelector('.event-date'),
+	eventsContainer = document.querySelector('.events');
 
 let today = new Date();
 let activeDay;
@@ -41,7 +42,7 @@ const months = [
 ];
 
 // defolt events arrea
-const eventArr = [
+const eventsArr = [
 	{
 		day: 20,
 		month: 3,
@@ -100,7 +101,7 @@ function initCalendar() {
 	for (let i = 1; i <= lastDate; i++) {
 		// check if event present on curent day
 		let event = false;
-		eventArr.forEach((eventObj) => {
+		eventsArr.forEach((eventObj) => {
 			if (
 				eventObj.day === i &&
 				eventObj.month === month + 1 &&
@@ -117,6 +118,7 @@ function initCalendar() {
 		) {
 			activeDay = i;
 			getActiveDay(i);
+			updateEvents(i);
 			// days += `<div class="day today">${i}</div>`;
 			// if event found also add event class
 			// add active on today at startup
@@ -281,6 +283,7 @@ function addListener() {
 
 			//call active day after click
 			getActiveDay(e.target.innerHTML);
+			updateEvents(Number(e.target.innerHTML));
 
 			// remove active from already active day
 			days.forEach((day) => {
@@ -338,7 +341,6 @@ function getActiveDay(date) {
 	eventDate.innerHTML = date + ' ' + months[month] + ' ' + year;
 }
 
-
 // function for update events when a day is active
 function updateEvents(date) {
 	let events = '';
@@ -357,16 +359,18 @@ function updateEvents(date) {
 			  <div class="event-time">
 				<span class="event-time">${event.time}</span>
 			  </div>
-		  </div>`;
+		  </div>
+		  `;
 			});
 		}
 	});
 	// if the is no events
-	if (events === "") {
+	if (events === '') {
 		events = `<div class="no-event">
 				<h3>No Events</h3>
 			</div>`;
-	  }
+	}
+	eventsContainer.innerHTML = events;
 }
 // EventLISTENER
 
