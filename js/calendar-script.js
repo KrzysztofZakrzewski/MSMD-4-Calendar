@@ -15,7 +15,10 @@ const calendar = document.querySelector('.calendar'),
 	addEventCloseBtn = document.querySelector('.close'),
 	addEventTitle = document.querySelector('.event-name'),
 	addEventFrom = document.querySelector('.event-time-from'),
-	addEventTo = document.querySelector('.event-time-to');
+	addEventTo = document.querySelector('.event-time-to'),
+	//
+	eventDay = document.querySelector('.event-day'),
+	eventDate = document.querySelector('.event-date');
 
 let today = new Date();
 let activeDay;
@@ -112,6 +115,8 @@ function initCalendar() {
 			year === new Date().getFullYear() &&
 			month === new Date().getMonth()
 		) {
+			activeDay = i;
+			getActiveDay(i);
 			// days += `<div class="day today">${i}</div>`;
 			// if event found also add event class
 			// add active on today at startup
@@ -273,6 +278,10 @@ function addListener() {
 		day.addEventListener('click', (e) => {
 			// set curent day as active
 			activeDay = Number(e.target.innerHTML);
+
+			//call active day after click
+			getActiveDay(e.target.innerHTML);
+
 			// remove active from already active day
 			days.forEach((day) => {
 				day.classList.remove('active');
@@ -318,6 +327,15 @@ function addListener() {
 			}
 		});
 	});
+}
+
+// show active day events and date at top of right side
+
+function getActiveDay(date) {
+	const day = new Date(year, month, date);
+	const dayName = day.toString().split(' ')[0];
+	eventDay.innerHTML = dayName;
+	eventDate.innerHTML = date + ' ' + months[month] + ' ' + year;
 }
 
 // EventLISTENER
