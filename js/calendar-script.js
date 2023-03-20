@@ -380,7 +380,7 @@ addEventsSubmit.addEventListener('click', () => {
 	const eventTimeFrom = addEventFrom.value;
 	const eventTimeTo = addEventTo.value;
 
-	// validations
+	// validation
 	if (eventTitle === '' || eventTimeFrom === '' || eventTimeTo === '') {
 		alert('Plese fill all the fields');
 		return;
@@ -399,7 +399,54 @@ addEventsSubmit.addEventListener('click', () => {
 		alert('Invalid Time Format');
 		return;
 	}
+
+	const timeFrom = convertTime(eventTimeFrom);
+	const timeTo = convertTime(eventTimeTo);
+
+	const newEvent = {
+		title: eventTitle,
+		time: timeFrom + ' ' + timeTo,
+	};
+
+	let eventAdded = false;
+
+	// checking if eventsarr are not empty
+	if (eventsArr.length > 0) {
+		// check if current day has alredy any event than add to that
+		eventsArr.forEach((item) => {
+			if (
+				item.day === activeDay &&
+				item.month === month + 1 &&
+				item.year === year
+			) {
+				item.events.push(newEvent);
+				eventAdded = true;
+			}
+		});
+	}
+
+	// if event arrary is empty or current day has no new created event
+	if (!eventAdded) {
+		eventsArr.push({
+			day: activeDay,
+			month: month+1,
+			year: year,
+			events:[newEvent]
+		})
+		
+	}
 });
+
+function convertTime(time) {
+	//convert time to 24 hour format
+	let timeArr = time.split(':');
+	let timeHour = timeArr[0];
+	let timeMin = timeArr[1];
+	let timeFormat = timeHour >= 12 ? 'PM' : 'AM';
+	timeHour = timeHour % 12 || 12;
+	time = timeHour + ':' + timeMin + ' ' + timeFormat;
+	return time;
+}
 
 // EventLISTENER
 
