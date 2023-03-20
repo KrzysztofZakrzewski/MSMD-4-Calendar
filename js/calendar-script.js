@@ -138,6 +138,8 @@ function initCalendar() {
 	}
 
 	daysContainer.innerHTML = days;
+	// add listener after calendar initialized
+	addListener();
 }
 
 initCalendar();
@@ -263,6 +265,39 @@ addEventTo.addEventListener('input', (e) => {
 		addEventTo.value = addEventFrom.value.slice(0, 5);
 	}
 });
+
+function addListener() {
+	const days = document.querySelectorAll('.day');
+	days.forEach((day) => {
+		day.addEventListener('click', (e) => {
+			// set curent day as active
+			activeDay = Number(e.target.innerHTML);
+			// remove active from already active day
+			days.forEach((day) => {
+				day.classList.remove('active');
+			});
+
+			// if prev month day clicked goto prev month and add active
+			if (e.target.classList.contains('prev-date')) {
+				prevMonth();
+
+				setTimeout(() => {
+					// select all days for that month
+					const days = document.querySelectorAll('.day');
+					// after going to prev month add active to clicked
+					days.forEach((day) => {
+						if (
+							!day.classList.contains('prev-date') &&
+							day.innerHTML === e.target.innerHTML
+						) {
+							day.classList.add('active');
+						}
+					});
+				}, 100);
+			}
+		});
+	});
+}
 
 // EventLISTENER
 
