@@ -443,6 +443,13 @@ addEventsSubmit.addEventListener('click', () => {
 	addEventTo.value = '';
 
 	updateEvents(activeDay);
+
+	// add class "event" to new newly added day
+
+	const activeDayElem = document.querySelector('.day.active');
+	if(!activeDayElem.classList.contains('event')) {
+		activeDayElem.classList.add('event')
+	}
 });
 
 function convertTime(time) {
