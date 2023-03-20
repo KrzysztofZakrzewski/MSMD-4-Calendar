@@ -294,6 +294,24 @@ function addListener() {
 						}
 					});
 				}, 100);
+
+				// same thing for next month
+			} else if (e.target.classList.contains('next-date')) {
+				nextMonth();
+
+				setTimeout(() => {
+					// select all days for that month
+					const days = document.querySelectorAll('.day');
+					// after going to next month add active to clicked
+					days.forEach((day) => {
+						if (
+							!day.classList.contains('next-date') &&
+							day.innerHTML === e.target.innerHTML
+						) {
+							day.classList.add('active');
+						}
+					});
+				}, 100);
 			}
 		});
 	});
