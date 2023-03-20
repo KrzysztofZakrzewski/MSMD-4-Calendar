@@ -362,7 +362,7 @@ body {
 	transform: translateY(-50%);
 }
 
-.event:hover::after {
+.events .event:hover::after {
 	display: flex;
 }
 
