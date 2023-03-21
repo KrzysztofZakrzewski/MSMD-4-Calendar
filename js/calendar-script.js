@@ -447,8 +447,8 @@ addEventsSubmit.addEventListener('click', () => {
 	// add class "event" to new newly added day
 
 	const activeDayElem = document.querySelector('.day.active');
-	if(!activeDayElem.classList.contains('event')) {
-		activeDayElem.classList.add('event')
+	if (!activeDayElem.classList.contains('event')) {
+		activeDayElem.classList.add('event');
 	}
 });
 
@@ -462,6 +462,43 @@ function convertTime(time) {
 	time = timeHour + ':' + timeMin + ' ' + timeFormat;
 	return time;
 }
+
+// function to remove events on click
+
+eventsContainer.addEventListener('click', (e) => {
+	if (e.target.classList.contains('event')) {
+		const eventTitle = e.target.children[0].children[1].innerHTML;
+		// get rhe title of event than serch in arrey by title and delete
+		eventsArr.forEach((event) => {
+			if (
+				event.day === activeDay &&
+				event.month === month + 1 &&
+				event.year === year
+			) {
+				event.events.forEach((item, index) => {
+					if (item.title === eventTitle) {
+						event.events.splice(index, 1);
+					}
+				});
+				// remove complet day if ther is no remaing day
+
+				if (event.events.length === 0) {
+					eventsArr.splice(eventsArr.indexOf(event), 1);
+					// remove class of that day
+
+					const activeDayElem = document.querySelector('.day.active');
+					if (activeDayElem.classList.contains('event')) {
+						activeDayElem.classList.remove('event');
+					}
+				}
+			}
+		});
+		// after removing from arrey update event
+		updateEvents(activeDay);
+	}
+});
+
+
 
 // EventLISTENER
 
