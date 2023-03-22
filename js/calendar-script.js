@@ -43,34 +43,42 @@ const months = [
 ];
 
 // defolt events arrea
-const eventsArr = [
-	{
-		day: 20,
-		month: 3,
-		year: 2023,
-		events: [
-			{
-				title: 'Event 1 lorem ipsum dolar sit genfa tersd DataTransferItemList',
-				time: '10:00 AM',
-			},
-			{
-				title: 'Event 2',
-				time: '11:00 AM',
-			},
-		],
-	},
-	{
-		day: 18,
-		month: 3,
-		year: 2023,
-		events: [
-			{
-				title: 'Event 1 lorem ipsum dolar sit genfa tersd DataTransferItemList',
-				time: '10:00 AM',
-			},
-		],
-	},
-];
+// const eventsArr = [
+// 	{
+// 		day: 20,
+// 		month: 3,
+// 		year: 2023,
+// 		events: [
+// 			{
+// 				title: 'Event 1 lorem ipsum dolar sit genfa tersd DataTransferItemList',
+// 				time: '10:00 AM',
+// 			},
+// 			{
+// 				title: 'Event 2',
+// 				time: '11:00 AM',
+// 			},
+// 		],
+// 	},
+// 	{
+// 		day: 18,
+// 		month: 3,
+// 		year: 2023,
+// 		events: [
+// 			{
+// 				title: 'Event 1 lorem ipsum dolar sit genfa tersd DataTransferItemList',
+// 				time: '10:00 AM',
+// 			},
+// 		],
+// 	},
+// ];
+
+// set emptyarray
+
+let eventsArr = [];
+
+// then call get
+
+getEvents;
 
 // function to add days
 
@@ -372,6 +380,8 @@ function updateEvents(date) {
 			</div>`;
 	}
 	eventsContainer.innerHTML = events;
+	// save events when wpdate even called
+	saveEvents();
 }
 
 // function to add events
@@ -498,7 +508,17 @@ eventsContainer.addEventListener('click', (e) => {
 	}
 });
 
+// store events in local storgate
+function saveEvents() {
+	localStorage.setItem('events', JSON.stringify(eventsArr));
+}
 
+function getEvents() {
+	if (localStorage.getItem('events' === null)) {
+		return;
+	}
+	eventsArr.push(...JSON.parse(localStorage.getItem('events')));
+}
 
 // EventLISTENER
 
